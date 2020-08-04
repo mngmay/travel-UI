@@ -1,20 +1,13 @@
 import React from "react";
 import LocationDetails from "./LocationDetails";
+import { v4 as uuidv4 } from "uuid";
 
 const LocationCard = ({ location, flights }) => {
   return (
     <div>
       <h3>{location}</h3>
       {flights.map((flight) => (
-        <LocationDetails
-          key={
-            flight.airline +
-            flight.flight_number +
-            flight.departure_at +
-            flight.return_at
-          }
-          flight={flight}
-        />
+        <LocationDetails key={uuidv4()} flight={flight} />
       ))}
     </div>
   );

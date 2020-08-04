@@ -2,8 +2,8 @@ import React from "react";
 import moment from "moment";
 
 const LocationDetails = (flight) => {
-  console.log(flight);
   const ticket = flight.flight;
+
   return (
     <div>
       <div>Price: {ticket.price}</div>

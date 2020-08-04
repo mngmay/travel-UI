@@ -1,9 +1,8 @@
 import { useQuery } from "react-query";
 import axios, { CancelToken } from "axios";
 
-export default function useCheapestTickets(search) {
-  console.log("getCheapestTickets Hook", search);
-  const { destination, origin, depart, ret, curr } = search.search;
+export default function useCheapestTickets({ search }) {
+  const { destination, origin, depart, ret, curr } = search;
 
   return useQuery(
     ["origin", origin],
@@ -21,7 +20,6 @@ export default function useCheapestTickets(search) {
           }
         )
         .then((res) => {
-          console.log("hook res.data", res.data);
           return res.data;
         });
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ReactQueryDevtools } from "react-query-devtools";
 import CheapestTickets from "./components/CheapestTickets";
+import SearchForm from "./components/SearchForm";
 
 import "./App.css";
 
@@ -20,19 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={(e) => e.preventDefault()}>
-        <label>
-          Origin:
-          <input
-            type="text"
-            placeholder="SEA"
-            name="origin"
-            value={search.origin}
-            onChange={handleChange}
-          />
-        </label>
-      </form>
-
+      <SearchForm search={search} handleChange={handleChange} />
       <CheapestTickets search={search} />
       <ReactQueryDevtools />
     </div>

@@ -4,8 +4,7 @@ import LocationCard from "./LocationCard";
 
 export default function CheapestTickets(search) {
   const ticketInfo = useCheapestTickets(search);
-  console.log("search", search);
-  console.log("data", ticketInfo);
+  console.log(ticketInfo);
 
   return ticketInfo.isLoading ? (
     "Loading..."
