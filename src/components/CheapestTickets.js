@@ -1,6 +1,7 @@
 import React from "react";
 import useCheapestTickets from "../hooks/useCheapestTickets";
 import LocationCard from "./LocationCard";
+import Grid from "@material-ui/core/Grid";
 
 export default function CheapestTickets(search) {
   const ticketInfo = useCheapestTickets(search);
@@ -11,7 +12,7 @@ export default function CheapestTickets(search) {
   ) : ticketInfo.isError ? (
     ticketInfo.error.message
   ) : (
-    <div>
+    <Grid container spacing={10} style={{ border: "1px solid blue" }}>
       {ticketInfo.data?.data
         ? Object.entries(ticketInfo.data.data).map((l) => (
             <LocationCard
@@ -21,6 +22,6 @@ export default function CheapestTickets(search) {
             />
           ))
         : "No results found"}
-    </div>
+    </Grid>
   );
 }

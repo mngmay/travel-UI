@@ -5,7 +5,7 @@ export default function useCheapestTickets({ search }) {
   const { destination, origin, depart, ret, curr } = search;
 
   return useQuery(
-    ["origin", origin],
+    ["cheapestTickets", origin + destination + depart + ret + curr],
     () => {
       const source = CancelToken.source();
 

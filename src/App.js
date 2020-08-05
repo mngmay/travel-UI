@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { ReactQueryDevtools } from "react-query-devtools";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Dashboard from "./components/Dashboard";
 import CheapestTickets from "./components/CheapestTickets";
 import SearchForm from "./components/SearchForm";
+import Header from "./components/Header";
 
 import "./App.css";
 
@@ -21,8 +24,12 @@ function App() {
 
   return (
     <div className="App">
-      <SearchForm search={search} handleChange={handleChange} />
-      <CheapestTickets search={search} />
+      <CssBaseline />
+      <Header />
+      <Dashboard>
+        <SearchForm search={search} handleChange={handleChange} />
+        <CheapestTickets search={search} />
+      </Dashboard>
       <ReactQueryDevtools />
     </div>
   );
