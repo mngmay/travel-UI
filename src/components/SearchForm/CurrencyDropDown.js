@@ -35,7 +35,7 @@ export default function CurrencyDropDown({ search, handleChange }) {
         >
           {currencies.map((option) => (
             <option key={option.code} value={option.code}>
-              {`${option.symbol_native} ${option.code}`}
+              {`${option.symbol_native} ${option.name}`}
             </option>
           ))}
         </TextField>
