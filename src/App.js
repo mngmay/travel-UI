@@ -3,10 +3,9 @@ import { ReactQueryDevtools } from "react-query-devtools";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Dashboard from "./components/Dashboard";
 import CheapestTickets from "./components/CheapestTickets";
-import SearchForm from "./components/SearchForm";
+import SearchForm from "./components/SearchForm/SearchForm";
 import Header from "./components/Header";
-
-import "./App.css";
+import { ReactComponent as Cloud } from "./styles/svg/cloud.svg";
 
 function App() {
   const [search, setSearch] = useState({
@@ -26,6 +25,7 @@ function App() {
     <div className="App">
       <CssBaseline />
       <Header />
+      <Cloud />
       <Dashboard>
         <SearchForm search={search} handleChange={handleChange} />
         <CheapestTickets search={search} />

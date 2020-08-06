@@ -3,7 +3,7 @@ import Logo from "./Logo";
 
 const Header = () => {
   return (
-    <div>
+    <div className="header">
       <Logo />
     </div>
   );

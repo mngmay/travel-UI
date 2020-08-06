@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import "/variables";
+
+@import "/cloud";
+
+html {
+  height: 100%;
+  background-color: $main-bg;
+}
+
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  background: rgb(245, 255, 250);
+  background: linear-gradient(
+    180deg,
+    rgba(245, 255, 250, 0.9023984593837535) 42%,
+    rgba(135, 206, 250, 1) 98%
+  );
+  background-repeat: no-repeat;
+}
+
+.App {
+  height: 100%;
+  width: 85%;
+  margin: 0 auto;
+}
+
+// Header
+
+.header {
+  height: 20vh;
+  width: 100%;
+}
+
+// Dashboard
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noResults {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+  width: 100%;
+}
+// Search Form
+
+.searchForm {
+  display: flex;
+}
+
+.searchInput label {
+  text-transform: capitalize;
+}

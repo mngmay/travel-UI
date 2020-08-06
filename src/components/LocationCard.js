@@ -13,9 +13,9 @@ import TableRow from "@material-ui/core/TableRow";
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1),
-    width: "33%",
+    width: "30%",
     [theme.breakpoints.down("md")]: {
-      width: "100%",
+      width: "90%",
     },
   },
   container: {
@@ -35,8 +35,11 @@ const LocationCard = ({ location, flights }) => {
   const rows = flights;
 
   return (
-    <Paper className={classes.root}>
-      <h1>{location}</h1>
+    <Paper
+      className={classes.root}
+      style={{ margin: "0 auto", marginTop: "20px" }}
+    >
+      <h1 style={{ textAlign: "center" }}>{location}</h1>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
