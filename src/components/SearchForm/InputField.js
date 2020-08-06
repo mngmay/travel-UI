@@ -15,19 +15,17 @@ export default function InputField({ label, placeholder, handleChange }) {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <div>
-        <TextField
-          className="searchInput"
-          id="outlined-textarea"
-          name={label}
-          label={label}
-          placeholder={placeholder}
-          multiline
-          variant="outlined"
-          onChange={handleChange}
-        />
-      </div>
-    </form>
+    <div className={classes.root}>
+      <TextField
+        className="searchInput"
+        id="outlined-textarea"
+        name={label}
+        label={label}
+        placeholder={placeholder}
+        multiline
+        variant="outlined"
+        onChange={handleChange}
+      />
+    </div>
   );
 }

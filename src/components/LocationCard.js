@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
+import { commonCurrencies } from "../constants/currencies";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -26,12 +27,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LocationCard = ({ location, flights }) => {
+const LocationCard = ({ location, currency, flights }) => {
   const classes = useStyles();
 
   const columns = [
     { id: "airline", label: "Airport", minWidth: 20 },
-    { id: "price", label: "Price", minWidth: 20 },
+    {
+      id: "price",
+      label: "Price",
+      minWidth: 20,
+      format: (value) => `${commonCurrencies[currency].symbol}${value}`,
+    },
     { id: "departure_at", label: "Departure", minWidth: 20 },
     { id: "return_at", label: "Return", minWidth: 20 },
   ];

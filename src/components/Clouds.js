@@ -7,8 +7,8 @@ import cloud5 from "../styles/imgs/cloud5.png";
 
 const Clouds = () => {
   return (
-    <div class="banner">
-      <div class="clouds">
+    <div className="banner">
+      <div className="clouds">
         <img src={cloud1} style={{ "--i": 1 }} alt="cloud1" />
         <img src={cloud2} style={{ "--i": 2 }} alt="cloud2" />
         <img src={cloud3} style={{ "--i": 3 }} alt="cloud3" />

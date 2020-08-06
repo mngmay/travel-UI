@@ -3,8 +3,8 @@ import useCheapestTickets from "../hooks/useCheapestTickets";
 import LocationCard from "./LocationCard";
 import Grid from "@material-ui/core/Grid";
 
-export default function CheapestTickets(search) {
-  const ticketInfo = useCheapestTickets(search);
+export default function CheapestTickets(props) {
+  const ticketInfo = useCheapestTickets(props);
   console.log(ticketInfo);
 
   return ticketInfo.isLoading ? (
@@ -18,6 +18,7 @@ export default function CheapestTickets(search) {
           <LocationCard
             key={l[0]}
             location={l[0]}
+            currency={props.search.curr}
             flights={Object.values(l[1])}
           />
         ))
