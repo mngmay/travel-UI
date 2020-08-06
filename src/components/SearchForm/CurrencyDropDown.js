@@ -1,46 +1,9 @@
 import React from "react";
+import { commonCurrencies } from "../../constants/currencies";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 
-const currencies = [
-  {
-    value: "USD",
-    label: "$ USD",
-  },
-  { value: "CAD", label: "$" },
-  {
-    value: "EUR",
-    label: "€ EUR",
-  },
-  {
-    value: "AED",
-    label: "د.إ.‏ AED",
-  },
-  {
-    value: "AFN",
-    label: "؋ AFN",
-  },
-  {
-    value: "ALL",
-    label: "Lek ALL",
-  },
-  {
-    value: "CNY",
-    label: "¥ CNY",
-  },
-  {
-    value: "DKK",
-    label: "kr DKK",
-  },
-  {
-    value: "KRW",
-    label: "₩ KRW",
-  },
-  {
-    value: "JPY",
-    label: "¥ JPY",
-  },
-];
+const currencies = Object.values(commonCurrencies);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,8 +34,8 @@ export default function CurrencyDropDown({ search, handleChange }) {
           variant="outlined"
         >
           {currencies.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
+            <option key={option.code} value={option.code}>
+              {`${option.symbol_native} ${option.code}`}
             </option>
           ))}
         </TextField>
