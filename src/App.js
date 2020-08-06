@@ -5,7 +5,7 @@ import Dashboard from "./components/Dashboard";
 import CheapestTickets from "./components/CheapestTickets";
 import SearchForm from "./components/SearchForm/SearchForm";
 import Header from "./components/Header";
-import { ReactComponent as Cloud } from "./styles/svg/cloud.svg";
+import Clouds from "./components/Clouds";
 
 function App() {
   const [search, setSearch] = useState({
@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <CssBaseline />
       <Header />
-      <Cloud />
+      <Clouds />
       <Dashboard>
         <SearchForm search={search} handleChange={handleChange} />
         <CheapestTickets search={search} />

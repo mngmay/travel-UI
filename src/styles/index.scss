@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import "/variables";
 
-@import "/cloud";
+@import "/clouds";
 
 html {
   height: 100%;
@@ -11,7 +11,6 @@ html {
 body {
   height: 100%;
   font-family: "Roboto", sans-serif;
-  background: rgb(245, 255, 250);
   background: linear-gradient(
     180deg,
     rgba(245, 255, 250, 0.9023984593837535) 42%,
@@ -29,16 +28,41 @@ body {
 // Header
 
 .header {
-  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  height: 30vh;
   width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1000;
+}
+
+.logo {
+  position: absolute;
+  left: 120px;
+  top: 150px;
+}
+
+.cloud {
+  position: absolute;
+  height: 300px;
+  width: 400px;
+  bottom: 10px;
+  fill: white;
+  stroke-linejoin: round;
+  stroke-width: 0.5;
+  stroke: lightskyblue;
 }
 
 // Dashboard
 
 .dashboard {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1000;
 }
 
 .noResults {
@@ -51,6 +75,7 @@ body {
 
 .searchForm {
   display: flex;
+  margin-bottom: 20px;
 }
 
 .searchInput label {
