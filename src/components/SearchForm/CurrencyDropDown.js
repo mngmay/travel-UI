@@ -1,5 +1,5 @@
 import React from "react";
-import { commonCurrencies } from "../../constants/currencies";
+import { commonCurrencies } from "../../constants/currencies.js";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 

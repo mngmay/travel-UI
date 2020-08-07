@@ -1,7 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
-import { commonCurrencies } from "../constants/currencies";
+import { commonCurrencies } from "../constants/currencies.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
