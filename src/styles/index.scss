@@ -37,14 +37,14 @@ body {
 .logo {
   position: absolute;
   left: 120px;
-  top: 150px;
+  top: 130px;
 }
 
 .cloud {
   position: absolute;
   height: 300px;
   width: 400px;
-  bottom: 10px;
+  top: 0;
   fill: white;
   stroke-linejoin: round;
   stroke-width: 0.5;
