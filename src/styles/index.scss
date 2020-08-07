@@ -26,18 +26,28 @@ body {
 .header {
   display: flex;
   flex-direction: row;
-  height: 30vh;
+  height: 20em;
   width: 100%;
   padding: 20px;
   margin-bottom: 20px;
   position: relative;
   z-index: 1000;
+
+  @media (max-width: $breakpoint-mobile) {
+    height: 15em;
+    justify-content: center;
+  }
 }
 
 .logo {
   position: absolute;
   left: 120px;
   top: 130px;
+
+  @media (max-width: $breakpoint-mobile) {
+    left: 60px;
+    top: 80px;
+  }
 }
 
 .cloud {
@@ -49,6 +59,12 @@ body {
   stroke-linejoin: round;
   stroke-width: 0.5;
   stroke: lightskyblue;
+
+  @media (max-width: $breakpoint-mobile) {
+    height: 200px;
+    width: 300px;
+    left: 10px;
+  }
 }
 
 // Dashboard
@@ -72,6 +88,10 @@ body {
 .searchForm {
   display: flex;
   margin-bottom: 20px;
+
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+  }
 }
 
 .searchInput label {
