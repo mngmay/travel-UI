@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 export default function CheapestTickets(props) {
   const ticketInfo = useCheapestTickets(props);
-  console.log(ticketInfo);
+  console.log("TicketInfo", ticketInfo);
 
   return ticketInfo.isLoading ? (
     "Loading..."

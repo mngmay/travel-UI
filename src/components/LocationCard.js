@@ -11,6 +11,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
+import useGetCity from "../hooks/useGetCity";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1),
@@ -43,12 +45,22 @@ const LocationCard = ({ location, currency, flights }) => {
   ];
   const rows = flights;
 
+  const cityName = useGetCity(location).data?.filter(
+    (city) => city.code === location
+  )[0].name;
+
+  const countryName = useGetCity(location).data?.filter(
+    (city) => city.code === location
+  )[0].country_name;
+
   return (
     <Paper
       className={classes.root}
       style={{ margin: "0 auto", marginTop: "20px" }}
     >
-      <h1 style={{ textAlign: "center" }}>{location}</h1>
+      <h1 style={{ textAlign: "center" }}>{`${location} ${
+        cityName ? "- " + cityName : ""
+      }${countryName ? ", " + countryName : ""}`}</h1>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
