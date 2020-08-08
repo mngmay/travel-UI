@@ -8,8 +8,7 @@ import CurrencyDropDown from "./components/SearchForm/CurrencyDropDown";
 import InputField from "./components/SearchForm/InputField";
 import Header from "./components/Header";
 import Clouds from "./components/Clouds";
-
-import useAutoComplete from "./hooks/useAutoComplete";
+import PredictiveInputField from "./components/SearchForm/PredictiveInputField";
 
 function App() {
   const [search, setSearch] = useState({
@@ -18,21 +17,16 @@ function App() {
     depart: "",
     ret: "",
     curr: "USD",
-    predictiveSearch: [],
   });
 
-  const autoCompleteResults = useAutoComplete(search.origin);
-  console.log("AutoComplete Test", autoCompleteResults);
-
   const handleChange = (e) => {
-    const predictions = [];
-    setSearch({ ...search, [e.target.name]: e.target.value });
-    // predictions = autoCompleteResults.map(
-    //   (result) =>
-    //     (result = { city_code: result.city_code, city_name: result.city_name })
-    // );
-    console.log("predictions", predictions);
+    if (e.target.name === "origin") {
+      setSearch({ ...search, [e.target.name]: e.target.value.slice(0, 4) });
+    } else {
+      setSearch({ ...search, [e.target.name]: e.target.value });
+    }
     console.log(search);
+    console.log("ORIGIN", search.origin);
   };
 
   return (
@@ -53,6 +47,12 @@ function App() {
             handleChange={handleChange}
           />
           <CurrencyDropDown search={search} handleChange={handleChange} />
+          <PredictiveInputField
+            label="origin"
+            search={search}
+            setSearch={setSearch}
+            handleChange={handleChange}
+          />
         </SearchForm>
         <CheapestTickets search={search} />
       </Dashboard>

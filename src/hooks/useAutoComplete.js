@@ -16,7 +16,6 @@ const useAutoComplete = (term) => {
           cancelToken: source.token,
         })
         .then((res) => {
-          console.log("AutoComplete Data", res.data);
           return res.data;
         });
 
