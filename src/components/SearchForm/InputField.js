@@ -17,7 +17,6 @@ export default function InputField({ label, placeholder, handleChange }) {
   return (
     <div className={classes.root}>
       <TextField
-        className="searchInput"
         id="outlined-textarea"
         name={label}
         label={label}

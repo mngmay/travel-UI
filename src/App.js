@@ -5,7 +5,6 @@ import Dashboard from "./components/Dashboard";
 import CheapestTickets from "./components/CheapestTickets";
 import SearchForm from "./components/SearchForm/SearchForm";
 import CurrencyDropDown from "./components/SearchForm/CurrencyDropDown";
-import InputField from "./components/SearchForm/InputField";
 import Header from "./components/Header";
 import Clouds from "./components/Clouds";
 import PredictiveInputField from "./components/SearchForm/PredictiveInputField";
@@ -26,7 +25,6 @@ function App() {
       setSearch({ ...search, [e.target.name]: e.target.value });
     }
     console.log(search);
-    console.log("ORIGIN", search.origin);
   };
 
   return (
@@ -36,23 +34,21 @@ function App() {
       <Clouds />
       <Dashboard>
         <SearchForm>
-          <InputField
-            label="origin"
-            placeholder="SEA"
-            handleChange={handleChange}
-          />
-          <InputField
-            label="destination"
-            placeholder="BOS"
-            handleChange={handleChange}
-          />
-          <CurrencyDropDown search={search} handleChange={handleChange} />
           <PredictiveInputField
             label="origin"
+            placeholder="SEA"
             search={search}
             setSearch={setSearch}
             handleChange={handleChange}
           />
+          <PredictiveInputField
+            label="destination"
+            placeholder="BOS"
+            search={search}
+            setSearch={setSearch}
+            handleChange={handleChange}
+          />
+          <CurrencyDropDown search={search} handleChange={handleChange} />
         </SearchForm>
         <CheapestTickets search={search} />
       </Dashboard>

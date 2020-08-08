@@ -3,14 +3,14 @@ import useAutoComplete from "../../hooks/useAutoComplete";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
-const PredictiveInputField = ({ search, setSearch, label, handleChange }) => {
+const PredictiveInputField = ({ search, setSearch, label, placeholder }) => {
   function removeDuplicates(myArr, prop) {
     return myArr.filter((obj, pos, arr) => {
       return arr.map((mapObj) => mapObj[prop]).indexOf(obj[prop]) === pos;
     });
   }
 
-  let autoCompleteResults = useAutoComplete(search.origin).data || [];
+  let autoCompleteResults = useAutoComplete(search[label]).data || [];
 
   if (autoCompleteResults.length) {
     autoCompleteResults = removeDuplicates(autoCompleteResults, "city_code");
@@ -27,7 +27,7 @@ const PredictiveInputField = ({ search, setSearch, label, handleChange }) => {
           (option) =>
             `${option.city_code} ${option.city_name}, ${option.country_name}`
         )}
-        inputValue={search.origin}
+        inputValue={search[label]}
         onInputChange={(e, newInputValue) => {
           setSearch({ ...search, [label]: newInputValue.slice(0, 3) });
         }}
@@ -37,8 +37,8 @@ const PredictiveInputField = ({ search, setSearch, label, handleChange }) => {
             label={label}
             margin="normal"
             variant="outlined"
-            name={label}
-            value={search.origin}
+            className="searchInput"
+            placeholder={placeholder}
           />
         )}
       />
