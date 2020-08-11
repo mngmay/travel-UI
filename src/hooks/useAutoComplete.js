@@ -2,7 +2,6 @@ import { useQuery } from "react-query";
 import axios, { CancelToken } from "axios";
 
 const useAutoComplete = (term) => {
-  console.log("term", term);
   return useQuery(
     ["airport", term],
     () => {

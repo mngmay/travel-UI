@@ -11,7 +11,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
-import useGetCity from "../hooks/useGetCity";
+import useGetLocation from "../hooks/useGetLocation";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,11 +45,11 @@ const LocationCard = ({ location, currency, flights }) => {
   ];
   const rows = flights;
 
-  const cityName = useGetCity(location).data?.filter(
+  const cityName = useGetLocation(location).data?.filter(
     (city) => city.code === location
   )[0].name;
 
-  const countryName = useGetCity(location).data?.filter(
+  const countryName = useGetLocation(location).data?.filter(
     (city) => city.code === location
   )[0].country_name;
 

@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import axios, { CancelToken } from "axios";
 
-const useAutoComplete = (code) => {
+const useGetLocation = (code) => {
   return useQuery(
     ["city", code],
     () => {
@@ -30,4 +30,4 @@ const useAutoComplete = (code) => {
   );
 };
 
-export default useAutoComplete;
+export default useGetLocation;

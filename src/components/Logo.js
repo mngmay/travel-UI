@@ -1,9 +1,11 @@
 import React from "react";
+import { ReactComponent as Cloud } from "../styles/svg/cloud.svg";
 
 const Logo = () => {
   return (
     <div className="logo">
-      <h1>Cool App Name</h1>
+      <h1>Trip Hop</h1>
+      <Cloud />
     </div>
   );
 };
