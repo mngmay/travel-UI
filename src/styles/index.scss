@@ -2,6 +2,10 @@
 
 @import "/clouds";
 
+@import "./dashboard";
+@import "./about";
+@import "./resources";
+
 html {
   height: 100%;
   background-color: $main-bg;
@@ -103,63 +107,19 @@ body {
   }
 }
 
-// Dashboard
+.navLink {
+  text-decoration: none;
+  color: black;
+}
 
-.dashboard {
-  position: relative;
+// All views
+
+.view {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1000;
-}
-
-.noResults {
-  display: flex;
   justify-content: center;
-  margin: 100px;
-  width: 100%;
-}
-// Search Form
-
-.searchForm {
-  display: flex;
-  width: 80%;
-  margin-bottom: 20px;
-  justify-content: space-between;
-  align-items: center;
-
-  @media (max-width: $breakpoint-mobile) {
-    flex-direction: column;
-  }
-}
-
-.searchInput label {
-  text-transform: capitalize;
-}
-
-.search {
-  display: flex;
-  justify-content: space-between;
-
-  @media (max-width: $breakpoint-mobile) {
-    flex-direction: column;
-  }
-}
-
-.search.locations {
-  width: 43%;
-
-  @media (max-width: $breakpoint-mobile) {
-    width: 100%;
-  }
-}
-
-.search.dates {
-  width: 40%;
-
-  @media (max-width: $breakpoint-mobile) {
-    width: 100%;
-  }
+  flex-grow: 1;
 }
 
 // Footer
@@ -195,8 +155,7 @@ body {
 .footerDiv {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   width: 33%;
 
   @media (max-width: $breakpoint-mobile) {
@@ -208,8 +167,21 @@ body {
     flex-direction: column;
     height: 100%;
 
+    .navLink {
+      margin-bottom: 10px;
+    }
+
     li {
       margin-bottom: 10px;
     }
   }
+}
+
+.noResults {
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  height: 220px;
 }

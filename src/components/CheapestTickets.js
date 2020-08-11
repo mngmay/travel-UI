@@ -6,15 +6,11 @@ import Grid from "@material-ui/core/Grid";
 export default function CheapestTickets(props) {
   const ticketInfo = useCheapestTickets(props);
   const [numberOfPosts, setNumberOfPosts] = useState(6);
+
   let posts;
   console.log("ticketInfo", ticketInfo.data?.data);
 
   if (ticketInfo.data?.data) {
-    // turn each city's prices into an array
-    // sort/get minimum price
-    // sort all entries by minimum price
-    // display the top 6
-
     console.log(
       "ticket values",
       Object.entries(ticketInfo.data?.data)
@@ -26,6 +22,7 @@ export default function CheapestTickets(props) {
         ])
         .sort((a, b) => (a[1] > b[1] ? 1 : -1))
     );
+
     let cheapest = Object.entries(ticketInfo.data?.data)
       .map((entry) => [
         entry[0],
@@ -43,7 +40,7 @@ export default function CheapestTickets(props) {
   }
 
   return ticketInfo.isLoading ? (
-    "Loading..."
+    <div className="loading">Loading...</div>
   ) : ticketInfo.isError ? (
     ticketInfo.error.message
   ) : (

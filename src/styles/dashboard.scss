@@ -1,0 +1,63 @@
+// Dashboard
+
+.dashboard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.noResults {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+  width: 100%;
+}
+
+// Search Form
+
+.searchForm {
+  display: flex;
+  width: 80%;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+  }
+}
+
+.searchInput label {
+  text-transform: capitalize;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+  }
+}
+
+.search.locations {
+  width: 43%;
+
+  @media (max-width: $breakpoint-mobile) {
+    width: 100%;
+  }
+}
+
+.search.dates {
+  width: 40%;
+
+  @media (max-width: $breakpoint-mobile) {
+    width: 100%;
+  }
+}
+
+.location[autocomplete="off"] input[type="text"] {
+  background-position: 150% 50% !important;
+}

@@ -1,73 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 import { ReactQueryDevtools } from "react-query-devtools";
+
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Dashboard from "./components/Dashboard";
-import CheapestTickets from "./components/CheapestTickets";
-import SearchForm from "./components/SearchForm/SearchForm";
-import CurrencyDropDown from "./components/SearchForm/CurrencyDropDown";
-import DatePicker from "./components/SearchForm/DatePicker";
-import Header from "./components/Header";
+
+import Header from "./components/Header/Header";
 import Clouds from "./components/Clouds";
-import PredictiveInputField from "./components/SearchForm/PredictiveInputField";
 import Footer from "./components/Footer/Footer";
 
+import Dashboard from "./components/views/Dashboard";
+import About from "./components/views/About";
+import Resources from "./components/views/Resources";
+
 function App() {
-  const [search, setSearch] = useState({
-    destination: "",
-    origin: "",
-    depart: Date.now(),
-    ret: Date.now(),
-    curr: "USD",
-  });
-
-  const handleChange = (e) => {
-    setSearch({ ...search, [e.target.name]: e.target.value });
-    console.log(search);
-  };
-
   return (
     <div className="App">
       <CssBaseline />
       <Header />
       <Clouds />
-      <Dashboard>
-        <SearchForm>
-          <div className="search locations">
-            <PredictiveInputField
-              label="origin"
-              placeholder="SEA"
-              search={search}
-              setSearch={setSearch}
-              handleChange={handleChange}
-            />
-            <PredictiveInputField
-              label="destination"
-              placeholder="BOS"
-              search={search}
-              setSearch={setSearch}
-              handleChange={handleChange}
-            />
-          </div>
-          <div className="search dates">
-            <DatePicker
-              label="Departure"
-              name="depart"
-              search={search}
-              setSearch={setSearch}
-              handleChange={handleChange}
-            />
-            <DatePicker
-              label="Return"
-              name="ret"
-              search={search}
-              setSearch={setSearch}
-              handleChange={handleChange}
-            />
-          </div>
-          <CurrencyDropDown search={search} handleChange={handleChange} />
-        </SearchForm>
-        <CheapestTickets search={search} />
-      </Dashboard>
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+        <Route path="/about" component={About} />
+        <Route path="/resources" component={Resources} />
+      </Switch>
       <Footer />
       <ReactQueryDevtools />
     </div>

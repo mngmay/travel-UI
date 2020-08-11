@@ -1,11 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Menu = () => {
+const Nav = () => {
   return (
-    <div className="menu footerDiv">
-      <h3>Menu</h3>
-      <ul>
+    <nav className="navBar">
+      <ul className="navList">
         <NavLink to="/" className="navLink">
           Dashboard
         </NavLink>
@@ -16,8 +15,8 @@ const Menu = () => {
           Recommended Resources
         </NavLink>
       </ul>
-    </div>
+    </nav>
   );
 };
 
-export default Menu;
+export default Nav;
